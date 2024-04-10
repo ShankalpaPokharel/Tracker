@@ -58,22 +58,27 @@ function Todo() {
 
     return (
         <>
-        <div className="mt-5">
-            <form onSubmit={handleSubmit}>
+        <div className="mt-5 w-screen">
+            <div className="flex mx-auto justify-center">
+            <form  onSubmit={handleSubmit}>
                 <input
-                className="border border-slate-300 rounded "
+                className="border border-slate-300 rounded-l w-96 p-2"
                     type="text"
                     name="todo"
                     id=""
+                    placeholder="Add Your task"
                     value={name.task}
                     onChange={(e) => setName({ task: e.target.value })}
                 />
                 {/* <input type="text" name="todo" id="" /> */}
-                <button className="bg-blue-500">Add Task</button>
+                <button className="bg-blue-500 border border-blue-300 p-2 rounded-r">Add Task</button>
             </form>
+            </div>
 
-            <table className="table-fixed">
-            <thead>
+
+<div className="mt-2 w-4/5  mx-auto">
+            <table className="table-fixed mt-5 w-full text-left">
+            <thead className="border bg-gray-100">
                 <tr>
                     <th>SN</th>
                     <th>Task</th>
@@ -81,15 +86,15 @@ function Todo() {
                     <th>Edit/Delete</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody >
                 {todo.map((el, index) => (
-                    <tr key={el.id}>
+                    <tr key={el.id} className="border">
                         <td>{index}</td>
                         {/* <td> {el.task}</td> */}
                         <td>
                             {el.id == editId ? (
                                 <input
-                                className=""
+                                className="border border-slate-400 rounded p-1 w-full"
                                     type="text"
                                     value={editValue}
                                     onChange={(e)=>setEditValue(e.target.value)}
@@ -107,23 +112,24 @@ function Todo() {
                         </td>
                         <td>
                             {el.id == editId ? (
-                                <button onClick={() => handleEditSubmit(el)}>
+                                <button className="bg-blue-500 border w-16 rounded p-1 mr-2" onClick={() => handleEditSubmit(el)}>
                                     Submit
                                 </button>
                             ) : (
-                                <button onClick={() => handleEdit(el)}>
+                                <button className="bg-blue-500 border w-16 rounded p-1 mr-2" onClick={() => handleEdit(el)}>
                                     Edit
                                 </button>
                             )}
                             {/* <button>Edit</button> */}
-                            <button onClick={()=>handleDelete(el)}>Delete</button>
+                            <button className="bg-red-500 border w-16 rounded p-1 mr-2" onClick={()=>handleDelete(el)}>Delete</button>
                         </td>
                     </tr>
                 ))}
                 </tbody>
             </table>
+            </div>
 
-            <p>Output</p>
+            {/* <p>Output</p>
             {todo.map((el) => (
                 <div key={el.id}>
                     <p>
@@ -132,7 +138,7 @@ function Todo() {
                     </p>
                     <input type="checkbox" checked={el.status} />
                 </div>
-            ))}
+            ))} */}
             </div>
         </>
     );
