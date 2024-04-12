@@ -145,9 +145,9 @@ function Todo() {
                 </div>
 
                 <div className="mt-2 w-4/5  mx-auto">
-                    <table className="table-fixed mt-5 w-full text-left">
-                        <thead className="border bg-gray-100">
-                            <tr>
+                    <table className="mt-5 w-full text-left">
+                        <thead className="border">
+                            <tr className="bg-gray-500 text-white">
                                 <th>SN</th>
                                 <th>Task</th>
                                 <th>Status</th>
@@ -157,12 +157,12 @@ function Todo() {
                         <tbody>
                             {todo.map((el, index) => (
                                 <tr key={el._id} className="border">
-                                    <td>{index}</td>
+                                    <td>{index+1}</td>
                                     {/* <td> {el.task}</td> */}
                                     <td>
                                         {el._id == editId ? (
                                             <input
-                                                className="border border-slate-400 rounded p-1 w-full"
+                                                className="border border-slate-500 rounded p-1 w-full"
                                                 type="text"
                                                 value={editValue}
                                                 onChange={(e) =>

@@ -28,11 +28,13 @@ function LeftNavBar() {
                             </NavLink>
                             
                          
-
-
+                        <NavLink to="/shoppingList" className={({isActive})=>`${isActive?"text-blue-500":"text-black"}`}>
                         <li className=" py-1 left-navbar-hover">
                             Shopping List
                         </li>
+                        </NavLink>
+
+                        
                         <li className="py-1 left-navbar-hover">
                             Budget Tracker
                         </li>

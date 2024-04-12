@@ -11,13 +11,14 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Home from './pages/Home.jsx';
-import {Todo, Welcome} from './components';
+import {ShoppingList, Todo, Welcome} from './components';
 
 const router= createBrowserRouter(
   createRoutesFromElements
   (<Route path="/" element={<Home/>}>
     <Route path='' element={<Welcome/>}/>
     <Route path='todo' element={<Todo/>}/>
+    <Route path="shoppingList" element={<ShoppingList/>}/>
   </Route>)
 )
 
